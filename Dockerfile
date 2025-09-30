@@ -1,6 +1,7 @@
 # Use the amd64 platform explicitly
 FROM --platform=linux/amd64 ubuntu
 
+# Set home
 ENV HOME=/home/workspace
 
 # Install necessary packages
@@ -17,14 +18,15 @@ RUN apt update && apt install -y \
 RUN useradd --create-home --home-dir /home/workspace --user-group workspace && echo workspace:workspace | chpasswd \
   && chsh -s /bin/bash workspace && echo "workspace ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-WORKDIR /home/workspace
+# Copy over home directory
+WORKDIR /
+COPY ./home/ /home/workspace
+
+# Copy over entrypoint,sh
 WORKDIR /
 COPY entrypoint.sh .
-COPY ./home/. ./
 
 RUN chown -R workspace:workspace /home/workspace
-
-RUN mv /home/workspace /workspace
 
 # IMPORTANT: disable PAM to prevent ssh issues over rosetta
 RUN sed -i 's/UsePAM yes/UsePAM no/' etc/ssh/sshd_config
