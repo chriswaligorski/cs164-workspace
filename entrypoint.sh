@@ -2,12 +2,12 @@
 
 set -e
 
-sudo sed -i 's/UsePAM yes/UsePAM no/' /etc/ssh/sshd_config
-sudo /run/sshd &
+sudo service ssh start
 
 echo "Docker164 is ready!"
 
 cd /home/workspace
+source .bashrc
 
 /bin/bash
 
