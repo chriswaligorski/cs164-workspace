@@ -1,5 +1,18 @@
 # CS164 Workspace
 
+```bash
+                  ,,__
+        ..  ..   / o._)                   .---.
+       /--'/--\  \-'||        .----.    .'     '.
+      /        \_/ / |      .'      '..'         '-.
+    .'\  \__\  __.'.'     .'          i-._
+      )\ |  )\ |      _.'
+     // \\ // \\
+    ||_  \\|_  \\_
+mrf '--' '--'' '--'
+```
+_ASCII Art by Morfina_
+
 ## Introduction
 
 Welcome to the CS164 Workspace! CS164 assignments require compiling to and executing x86-64 assembly, which cannot be done natively on Apple silicon's ARM64. This workspace allows you to emulate x86-64 in a Docker container with the power of Rosetta, letting you complete assignments 100% locally on your Apple Silicon Mac!
