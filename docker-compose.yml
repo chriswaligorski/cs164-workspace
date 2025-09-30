@@ -1,9 +1,0 @@
-services:
-  cs164:
-    image: cs164-workspace
-    platform: linux/amd64
-    tty: true
-    volumes:
-      - ./.workspace:/home/workspace
-    ports:
-      - "16444:44"
