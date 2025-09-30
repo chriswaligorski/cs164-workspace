@@ -12,19 +12,20 @@ RUN apt update && apt install -y \
     sudo \
     openssh-server \
     gcc \
-    ocaml \
     opam
 
 RUN useradd --create-home --home-dir /home/workspace --user-group workspace && echo workspace:workspace | chpasswd \
   && chsh -s /bin/bash workspace && echo "workspace ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # Copy over home directory
-WORKDIR /
-COPY ./home/ /home/workspace
+WORKDIR /home/workspace
+COPY ./home/. ./
 
 # Copy over entrypoint,sh
 WORKDIR /
 COPY entrypoint.sh .
+
+RUN sha256sum > /home/workspace/.version
 
 RUN chown -R workspace:workspace /home/workspace
 
@@ -33,6 +34,8 @@ RUN sed -i 's/UsePAM yes/UsePAM no/' etc/ssh/sshd_config
 
 # Change default ssh listening port to 44
 RUN sed -i 's/#Port 22/Port 44/' /etc/ssh/sshd_config
+
+RUN mv /home/workspace /workspace
 
 USER workspace
 
