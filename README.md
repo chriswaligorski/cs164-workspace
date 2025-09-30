@@ -15,7 +15,7 @@ _ASCII Art by Morfina_
 
 ## Introduction
 
-Welcome to the CS164 Workspace! CS164 assignments require compiling to and executing x86-64 assembly, which cannot be done natively on Apple silicon's ARM64. This workspace allows you to emulate x86-64 in a Docker container with the power of Rosetta, letting you complete assignments 100% locally on your Apple Silicon Mac!
+Welcome to the CS164 Workspace! CS164 assignments require compiling to and executing x86-64 assembly, which cannot be done natively on Apple Silicon's ARM64. This workspace allows you to emulate x86-64 in a Docker container with the power of Rosetta, letting you complete assignments 100% locally on your Apple Silicon Mac!
 
 ## Prerequisites
 Docker is a cross-platform tool for managing containers. You can use Docker to download and run the Workspace we have prepared for this course.
@@ -87,6 +87,7 @@ _Note: Docker commands sometimes have to be run with sudo access, so for the com
 To avoid entering the password every time you SSH into the container, follow these additional steps from your host machine:
 
 1. **Copy Your SSH Key**
+
    If you do not already have a SSH public key, follow the instructions [here](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key) 
    
    ```bash
@@ -96,6 +97,7 @@ To avoid entering the password every time you SSH into the container, follow the
    If different from the default, replace `~/.ssh/id_ed25519.pub` with the path to your SSH public key.
 
 2. **Update SSH Config**
+
    To alias the full SSH command, add the following lines to your `~/.ssh/config` file:
    ```
    Host docker164
@@ -112,6 +114,7 @@ You can now enjoy a passwordless SSH experience for your CS164 workspace:
 To pull from and push to your Github account from the workspace, you need to generate an SSH public key and add it to your GitHub profile.
 
 1. **Generate SSH Key**
+
    Insert the email associated with your GitHub account in place of you@example.com and run the command to create a key pair. Choose a file location and a passphrase (or press enter to choose the default location and no passphrase).
 
    ```bash
@@ -119,6 +122,7 @@ To pull from and push to your Github account from the workspace, you need to gen
    ```
 
 2. **Add SSH Key To Your GitHub Account**
+
    Go to [GitHub -> Settings -> Keys](https://github.com/settings/keys) and click "New SSH Key" in the top right. Choose a title for the new key, copy the output of the following command, and paste it in the "Key" box.
 
    ```bash
@@ -142,6 +146,7 @@ _Note: If you chose a different file location in the first step, replace this de
 To set up opam and install the necessary packages for CS164 assignments:
 
 1. **Initialize Opam**
+
    Run the following commands and enter 'y' when prompted
    ```bash
    opam init
@@ -149,6 +154,7 @@ To set up opam and install the necessary packages for CS164 assignments:
    ```
 
 2. **Install Packages**
+
    Install the packages needed for CS164
 
    ```bash
@@ -165,4 +171,3 @@ To set up opam and install the necessary packages for CS164 assignments:
 This repository was adapted from CS162's [cs162-workspace](https://github.com/Berkeley-CS162/cs162-workspace), developed by Wilson Nguyen.
 
 ### _Happy compiling!_ ###
-
