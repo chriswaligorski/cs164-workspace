@@ -129,7 +129,7 @@ To pull from and push to your Github account from the workspace, you need to gen
    cat /home/workspace/.ssh/id_ed25519.pub
    ```
 
-_Note: If you chose a different file location in the first step, replace this default location with the one you chose.
+_Note: If you chose a different file location in the first step, replace this default location with the one you chose._
 
 3. **Verify You Can Connect**
    
@@ -139,7 +139,18 @@ _Note: If you chose a different file location in the first step, replace this de
    ssh -T git@github.com
    ```
 
-   If the output is: "Hi {username}! You've successfully authenticated, but GitHub does not provide shell access.", then you're good to go!
+   If the output is: "Hi {username}! You've successfully authenticated, but GitHub does not provide shell access.", then you've successfully added the key!
+
+4. **Set Global Username and Email**
+
+   Lastly, to be able to make commits you need to identify yourself by setting the following two global variables.
+
+   ```bash
+   git config --global user.email "YOUR EMAIL"
+   git config --global user.name  "YOUR NAME" 
+   ```
+
+   And you're good to go!
 
 ## Setting Up Your OCaml Environment
 
