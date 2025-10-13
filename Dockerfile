@@ -25,8 +25,6 @@ COPY ./home/. ./
 WORKDIR /
 COPY entrypoint.sh .
 
-RUN sha256sum > /home/workspace/.version
-
 RUN chown -R workspace:workspace /home/workspace
 
 # IMPORTANT: disable PAM to prevent ssh issues over rosetta
